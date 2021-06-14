@@ -1,0 +1,34 @@
+{
+  "devDependencies": {
+    "@commitlint/cli": "^12.1.4",
+    "@commitlint/config-conventional": "^12.1.4",
+    "conventional-changelog": "^3.1.24",
+    "cz-conventional-changelog": "^3.3.0",
+    "cz-customizable": "^6.3.0",
+    "husky": "^6.0.0",
+    "standard-version": "^9.3.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-customizable"
+    }
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "scripts": {
+    "commit": "git add . && git cz",
+    "genlog": "conventional-changelog -p angular -i CHANGELOG.md -s",
+    "release": "standard-version",
+    "release:alpha": "standard-version --prerelease alpha",
+    "release:rc": "standard-version --prerelease rc",
+    "release:100": "npm run release -- major",
+    "release:010": "npm run release -- minor",
+    "release:001": "npm run release -- patch",
+    "posttag": "git push --follow-tags origin main"
+  },
+  "version": "0.0.6",
+  "name": "sqz-logger"
+}
