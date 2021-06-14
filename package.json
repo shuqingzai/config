@@ -29,6 +29,6 @@
     "release:001": "npm run release -- patch",
     "posttag": "git push --follow-tags origin main"
   },
-  "version": "0.0.6",
+  "version": "0.0.1",
   "name": "sqz-logger"
 }
